@@ -1,3 +1,47 @@
+//Call ,Aplly ,Bind
+let obj = {
+     fullname: "shubham",
+     age: 16
+}
+
+function print () {
+     console.log(this.fullname);
+}
+
+print.call(obj) //call
+
+
+let obj1 = {
+     fullname : "john",
+     age : 26
+}
+
+function kaam (a,b,c) {
+    console.log(this, a, b, c)
+}
+
+kaam.apply(obj1, ["raj",2,3]) //apply
+
+let obj3 = {
+     fullname : "john",
+     age : 26
+}
+
+let j = "jeera";
+
+function je (){
+     console.log(this)
+}
+
+je.call(j)
+
+function jaam (a,b,c) {
+    console.log(this, a, b, c)
+}
+
+const fnct =  jaam.bind(obj,1,2,3); //bind
+fnct()
+
 //this keyword ek aisa keywword hai jiski value run time par decide hoti hai. 
 //this keyword ka use object ke andar function ko call karne ke liye hota hai.
 //this keyword ka use function ke andar bhi hota hai.
@@ -19,24 +63,39 @@ const user = {
      fullname : "shubham",
      age: 21,
 
-     function () {
+     showdDetail: function () {
           let obj = {
                fullname: "jay",
                age: 20,
 
                
+               checkThis: function nesting () {
+                    console.log(this)
+               }
           }
-          function nesting () {
-               console.log(this)
-          }
-          
+          obj.checkThis(); 
           console.log(this)
      }
 
 }
 
-user.function()
-//this keyword in method refers to the object itself
+user.showdDetail()  //this keyword in method refers to the object itself
+
+//Value of this in Constructor Function
+
+
+//this in event handler
+
+document.querySelector(".thoda").addEventListener( "click" ,
+  function () {
+        this.style.color = "red"
+  }
+
+)
+
+                   
+
+
 
 //lexical scoipng
 
