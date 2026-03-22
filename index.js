@@ -1,182 +1,44 @@
-//Call ,Aplly ,Bind
-let obj = {
-     fullname: "shubham",
-     age: 16
-}
+let button = document.createElement("button");
+button.textContent = "button";
+button.style =
+  "color: black ; background-color: green;top: 20px ; left: 40px; padding: 2px; margin: 5px; width : 200px";
 
-function print () {
-     console.log(this.fullname);
-}
+document.body.appendChild(button);
+let count = 0;
 
-print.call(obj) //call
-
-
-let obj1 = {
-     fullname : "john",
-     age : 26
-}
-
-function kaam (a,b,c) {
-    console.log(this, a, b, c)
-}
-
-kaam.apply(obj1, ["raj",2,3]) //apply
-
-let obj3 = {
-     fullname : "john",
-     age : 26
-}
-
-let j = "jeera";
-
-function je (){
-     console.log(this)
-}
-
-je.call(j)
-
-function jaam (a,b,c) {
-    console.log(this, a, b, c)
-}
-
-const fnct =  jaam.bind(obj,1,2,3); //bind
-fnct()
-
-//this keyword ek aisa keywword hai jiski value run time par decide hoti hai. 
-//this keyword ka use object ke andar function ko call karne ke liye hota hai.
-//this keyword ka use function ke andar bhi hota hai.
-
-//Value of this in Global Scope
-
-console.log(this) //this keyword in global scope refer to the global object (window in browser, global in Node.js)
-
-//Value of this in Function Scope
-
- function valueOfThis () {
-     console.log(this);
- } 
-valueOfThis(); //this kwyword in functional scope refers to the global object (window in browser, global in Node.js)
-
-//Value of this in Method
-
-const user = {
-     fullname : "shubham",
-     age: 21,
-
-     showdDetail: function () {
-          let obj = {
-               fullname: "jay",
-               age: 20,
-
-               
-               checkThis: function nesting () {
-                    console.log(this)
-               }
-          }
-          obj.checkThis(); 
-          console.log(this)
-     }
-
-}
-
-user.showdDetail()  //this keyword in method refers to the object itself
-
-//Value of this in Constructor Function
-
-
-//this in event handler
-
-document.querySelector(".thoda").addEventListener( "click" ,
-  function () {
-        this.style.color = "red"
+function toster(config) {
+   count++ 
+   let top = config.y;
+   if(count===8){
+    count = 0;
   }
-
-)
-
-                   
-
-
-
-//lexical scoipng
-
-function a(){
-   let Ram = "Shubh";
-    let b = Ram;
-
-    function c () {
-        console.log(b);
-    }
-    c();
-}
-a();
-
-//Dynamic Scoping
-
-let Ram = "king of Ayodhya";
-
-function b (){
-    console.log(Ram);
+  top = count*100
+  
+  console.log(count)
+  console.log(`clicked ${count}`);
+  let tosterDiv = document.createElement("div");
+  let tosterText = document.createElement("h1");
+  let body = document.body
+  body.className = config.theme === "dark" ? "bg-zinc-900" : "bg-white";
+  tosterDiv.appendChild(tosterText);
+  tosterText.textContent = config.notification;
+  tosterDiv.style = `position:${config.position}; ${config.loc_Y}:${top + "px"}; ${config.loc_X}: ${config.x}; background:#333; color:#fff; padding:16px 24px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.2); z-index:1000;`;
+  document.body.appendChild(tosterDiv);
+  top += 10;
+  setTimeout(() => {
+    document.body.removeChild(tosterDiv);
+  }, config.duration * 1000);
 }
 
-
-function jay() {
-     let Ram = "Narayan";
-     b();
-}
-
-jay()
-
-//clouser => clouser concept me ek parent fuction ke andar ek aur function retutrn hota hai 
-  // aur returning function paraint function ki koi variable use(istemal) karta hai.
-
-  function parent() {
-    let a = "Shubh";
-     return function child (){
-          console.log(a)
-     }
-     child();
-  }
-  let fnc = parent();
-    fnc(); // "Shubh"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//clouser
-
-function clicktLImiter () {
-     let click = 0;
-
-     return function () {
-          if (click < 5){
-            click++;
-            console.log(click);
-          } else {
-            console.log("Maximum click reached please try again letter")
-          }
-     }
-} 
-
-let fn = clicktLImiter();
-fn(); 
-fn(); 
-fn(); 
-fn(); 
-fn(); 
-fn(); 
-fn(); 
-
-console.log(click)
-
-
-
+button.addEventListener("click", () => {
+  toster({
+    theme: "dark",
+    position: "fixed",
+    loc_Y: "top",
+    loc_X: "right",
+    x: "10px",
+    y: 10,
+    notification: "Parameter acceseped",
+    duration: 2,
+  });
+});
