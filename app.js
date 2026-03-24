@@ -1,11 +1,13 @@
-function filter(arr, fn){
-  if(typeof fn !== "function") throw new Error("fn must be a function")
-  let result = []
-  for(let i = 0; i<arr.length; i++){
-  if(fn(arr[i],i)) { result.push(arr[i]) }
+function frequency(arr){
+   let obj = {}
+   for(let item of arr){
+     if(obj[item]){
+        obj[item]++
+     }else if(!obj[item]){
+        obj[item] = 1;
+     }
+   }
+   return obj
 }
-return result
-}
-console.log(filter([-2,-1,0,1,2], function(n, i){
-    return n+1
-}))
+
+console.log(frequency([1,3,1,3,3,5,6,8,4,5]))
