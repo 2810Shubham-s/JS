@@ -14,27 +14,43 @@
 
 //three time retry logic
 
-let count = 1;
-async function fetchApi(){
-    const API = "https://jsonplaceholder.typicode.com/todos1/1";
-    let response = await fetch(API)
-    try {
+// let count = 1;
+// async function fetchApi(){
+//     const API = "https://jsonplaceholder.typicode.com/todos1/1";
+//     let response = await fetch(API)
+//     try {
       
-      if(response.ok){
-        let data = await response.json();
-        console.log(data)
-        return data;
-      }else if(!response.ok && count<3){
+//       if(response.ok){
+//         let data = await response.json();
+//         console.log(data)
+//         return data;
+//       }else if(!response.ok && count<3){
           
-          console.log(count)
-          setTimeout(fetchApi, 1000);
+//           console.log(count)
+//           setTimeout(fetchApi, 1000);
           
-      }else{
-           console.log("tried 3 times but failed fetching api")
-      }
-    }catch{
-       throw new Error("Error fetching Data")
-    }
-}
+//       }else{
+//            console.log("tried 3 times but failed fetching api")
+//       }
+//     }catch{
+//        throw new Error("Error fetching Data")
+//     }
+// }
 
-console.log(fetchApi())
+// console.log(fetchApi())
+
+
+var compose = function(functions) {
+    
+    return function(x) {
+        let val = x;
+        console.log(functions.length)
+        for(let i = functions.length - 1; i>0; i--){
+          val = functions[i](val)
+        }
+        return val
+    }
+};
+
+let fn = compose([x => 10 * x, x => 10 * x, x => 10 * x])
+console.log(fn(4))
