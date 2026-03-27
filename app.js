@@ -73,74 +73,20 @@
 
 
 function memoize(fn) {
-    
+    let cache = {};
+
     return function(...args) {
-     
-       let  memorisedSum = {};
-       let  memorisedfib = {};
-       let  memorisedFactorial = {};
-       if(fn==="sum"){
-          for(let i = 0; i<agrs.length; i++)
-           if(memorisedSum.args[i]){
-            return memorisedSum.args[i]
-           }else{
-            return sum(args[i])
-           }
-     
-        }
-       if(fn==="factorial"){
-          for(let i = 0; i<agrs.length; i++)
-           if(memorisedFactorial.args[i]){
-            return memorisedFactorial.args[i]
-           }else{
-            return factorial(args[i])
-           }
-     
-        }
-       if(fn==="fib"){
-          for(let i = 0; i<agrs.length; i++)
-           if(memorisedfib.args[i]){
-            return memorisedfib.args[i]
-           }else{
-            return fib(args[i])
-           }
-     
-        }
-       let sum = function(a,b){
-            let sum = a+b;
-            let input = [a,b]
-            memorisedSum.input = sum;
-           return sum;
-        }
-       
-        let fib = (n) => {
-            let input = n;
-            let fib = 0;
-            memorisedfib
-            if(n<=1){
-               fib = 1;
-               return 1;
-            }
-            else { fib =  fib(n-1) + fib(n-2) }
-            memorisedfib.input = fib;
-        };
-        let factorial = (n)=>{
-            let input = n;
-            let fact = 0;
-            if(n<=1){
-              fact = 1;
-              return 1;
+        let key = JSON.stringify(args);
 
-            }else {
-            fact = factorial(n-1)*n;
-            return factorial(n-1)*n;
-            }
+        if (cache[key]) {
+            return cache[key];
         }
-        memorisedFactorial.input = fact;
 
-       
-    }
-
+        let result = fn(...args);
+        cache[key] = result;
+        return result;
+    };
+}
 
 
 
