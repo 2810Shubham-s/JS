@@ -156,7 +156,33 @@ function manualFilter(fn,arr){
 return newarr
 }
 
-console.log(manualFilter((n)=>{
-  return n%2===0
+// console.log(manualFilter((n)=>{
+//   return n%2===0
     
-}, [1,2,3,4,5,6,7,8,9,10]))
+// }, [1,2,3,4,5,6,7,8,9,10]))
+
+//implement manual reduce
+
+
+function reduce(fn,arr,init) {
+    let final;
+    let start;
+    if(init!== undefined){
+        final = init;
+        start = 0;
+    }else{
+        final = arr[0]
+        start = 1;
+
+    }
+
+    for(let i=start; i<arr.length; i++){
+        final = fn(final,arr[i])
+    }
+   return final  
+}
+
+console.log(reduce(function(accum,curr){
+    return accum + curr
+}, [1,2,3,4,5,6,7,8,9], 0))
+
