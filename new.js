@@ -41,4 +41,25 @@ function vowel(str){
 
 }
 
-console.log(vowel("Hello@World!"))
+//console.log(vowel("Hello@World!"))
+
+//Remove duplicates from an array
+function removeDuplicate(arr){
+    let newArr =[];
+
+    for(let item of arr){
+        if(!newArr.includes(item)){
+            newArr.push(item)
+        }
+    }
+    return newArr
+}
+
+//console.log(removeDuplicate([1,2,1,3,5,4,5,4,8,7,4]))
+
+//Remove duplicates from an array using Set
+function removeDuplicate2(arr){
+    return [...new Set(arr)]
+}
+
+console.log(removeDuplicate2([1,2,1,3,5,4,5,4,8,7,4]))
