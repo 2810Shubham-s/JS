@@ -126,4 +126,20 @@ function flatArray(arr){
      return newArr;
 }
 
-console.log(flatArray([1,[2],3,[3,[5,6]]]))
+//console.log(flatArray([1,[2],3,[3,[5,6]]]))
+
+//Implement map() manually
+
+function manualMap(fn,arr){
+    let newArr = [];
+    for(let i=0; i<arr.length; i++){
+        let newItem = fn(arr[i]);
+        newArr.push(newItem)
+    }
+    return newArr
+}
+
+console.log(manualMap((x)=>{
+   return x*2
+}, [1,2,3,5,6,9,8]
+));
