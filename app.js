@@ -88,9 +88,53 @@ function memoize(fn) {
     };
 }
 
+//DEBOUCE fucntion()
+
+let debounce = (fn, delay)=>{
+   let timer;
+
+   return function(...args){
+    clearTimeout(timer);
+    timer = setTimeout(()=>{fn(...args)},delay)
+   }
+}
+
+let fn = debounce(search,1000)
+function search(query) {
+    console.log(`i am seaching`, query);
+}
 
 
 
+// throttle
+let throttle =(fn,limit) =>{
+    let lastCall = 0;
+
+    return function(...args){
+       let now = Date.now();
+       if(now- lastCall >= limit){
+        lastCall = now
+        fn(...args)
+       }
+    }
+}
+
+
+
+
+function massage(msg){
+    console.log(msg)
+}
+
+
+let send = throttle(massage,2000)
+send("hi")
+send("hi")
+send("hi")
+send("hi")
+send("hello")
+send("hello")
+send("hello")
 
 
 
