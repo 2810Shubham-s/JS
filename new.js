@@ -83,5 +83,47 @@ let factorial = function(n){
 }
 
 
-console.log(`factorial with loop`,fact(5))
-console.log(`factorial with recursion`,factorial(5))
+//console.log(`factorial with loop`,fact(5))
+//console.log(`factorial with recursion`,factorial(5))
+
+//Check if two strings are anagrams
+
+function anagram(str, str2){
+   return str.split("").sort().join("")===str2.split("").sort().join("") ? "angram" : "not anagram"
+}
+
+//console.log(anagram("abcd2", "dcab"))
+
+//Find second largest number in array --> Done
+let secondLargest = function(arr){
+    let large = -Infinity; //10
+    let SecLarge = -Infinity; //7
+
+    for(let i=0; i<arr.length;i++){
+        if(arr[i]>= large){
+            SecLarge = large
+            large = arr[i]
+        }else if(arr[i]>= SecLarge && arr[i]!=large){
+            SecLarge = arr[i]
+        }
+    }
+    return { large,SecLarge};
+}
+
+//console.log(secondLargest([1,2,3,6,5,4,7,10,6,9,9]))
+
+//Flatten nested array (e.g. [1,[2,[3]]] → [1,2,3]) 
+
+function flatArray(arr){
+     let newArr = [];
+     for(let i=0; i<arr.length; i++){
+        if(Array.isArray(arr[i])){
+            newArr = newArr.concat(flatArray(arr[i]))
+        }else{
+            newArr.push(arr[i])
+        }
+     }
+     return newArr;
+}
+
+console.log(flatArray([1,[2],3,[3,[5,6]]]))
