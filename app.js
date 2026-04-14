@@ -127,14 +127,31 @@ function massage(msg){
 }
 
 
-let send = throttle(massage,2000)
-send("hi")
-send("hi")
-send("hi")
-send("hi")
-send("hello")
-send("hello")
-send("hello")
+// let send = throttle(massage,2000)
+// send("hi")
+// send("hi")
+// send("hi")
+// send("hi")
+// send("hello")
+// send("hello")
+// send("hello")
+
+class Fruit {
+    constructor (name,color){
+        this.name = name;
+        this.color = color;
+    }
+}
+
+let apple = new Fruit("Apple", "Red")
+let banana = new Fruit("banana", "yellow")
+
+console.log(apple)
+console.log(banana)
+
+
+
+
 
 
 
