@@ -681,7 +681,7 @@ function makeChapter4() {
             new Paragraph({children:[new TextRun({text:'Zustand v5  ·  Lightweight global store for authentication state',font:'Arial',size:19,color:C.nearBlack})],spacing:{before:20,after:20}}),
             new Paragraph({children:[new TextRun({text:'Axios v1  ·  HTTP client with automatic JWT Bearer token injection interceptor',font:'Arial',size:19,color:C.nearBlack})],spacing:{before:20,after:20}}),
             new Paragraph({children:[new TextRun({text:'Expo SecureStore  ·  AES-256 encrypted credential and token storage on device',font:'Arial',size:19,color:C.nearBlack})],spacing:{before:20,after:20}}),
-          ]} })] }),
+          ]} )] }),
           new TableRow({ children: [new TableCell({ borders, width:{size:9360,type:WidthType.DXA}, shading:{fill:C.accent,type:ShadingType.CLEAR}, margins:{top:100,bottom:100,left:240,right:240}, children:[new Paragraph({children:[new TextRun({text:'↕  HTTPS / REST API  ·  JWT Bearer Token Authentication  ↕',font:'Arial',size:19,bold:true,color:C.white})],alignment:AlignmentType.CENTER,spacing:{before:0,after:0}})] })] }),
           new TableRow({ children: [new TableCell({ borders, width:{size:9360,type:WidthType.DXA}, shading:{fill:C.navy,type:ShadingType.CLEAR}, margins:{top:160,bottom:160,left:240,right:240}, children:[new Paragraph({children:[new TextRun({text:'TIER 2 — APPLICATION LAYER',font:'Arial',size:20,bold:true,color:C.gold,characterSpacing:100})],alignment:AlignmentType.CENTER,spacing:{before:0,after:60}}), new Paragraph({children:[new TextRun({text:'Node.js 20 + Bun 1.x + Express.js 4.x + TypeScript 5.x',font:'Arial',size:22,bold:true,color:C.white})],alignment:AlignmentType.CENTER,spacing:{before:0,after:0}})] })] }),
           new TableRow({ children: [new TableCell({ borders, width:{size:9360,type:WidthType.DXA}, shading:{fill:C.midBlue,type:ShadingType.CLEAR}, margins:{top:100,bottom:100,left:240,right:240}, children:[
@@ -690,7 +690,7 @@ function makeChapter4() {
             new Paragraph({children:[new TextRun({text:'Drizzle ORM 0.3x  ·  TypeScript-first schema-driven query builder and migration manager',font:'Arial',size:19,color:C.nearBlack})],spacing:{before:20,after:20}}),
             new Paragraph({children:[new TextRun({text:'Groq SDK  ·  LLM client for AI Advisor (Llama 3 / Mixtral models)',font:'Arial',size:19,color:C.nearBlack})],spacing:{before:20,after:20}}),
             new Paragraph({children:[new TextRun({text:'Input Validation + Structured Error Handling  ·  Consistent API response envelope',font:'Arial',size:19,color:C.nearBlack})],spacing:{before:20,after:20}}),
-          ]} })] }),
+          ]} )] }),
           new TableRow({ children: [new TableCell({ borders, width:{size:9360,type:WidthType.DXA}, shading:{fill:C.accent,type:ShadingType.CLEAR}, margins:{top:100,bottom:100,left:240,right:240}, children:[new Paragraph({children:[new TextRun({text:'↕  Drizzle ORM  ·  Type-Safe PostgreSQL Queries  ↕',font:'Arial',size:19,bold:true,color:C.white})],alignment:AlignmentType.CENTER,spacing:{before:0,after:0}})] })] }),
           new TableRow({ children: [new TableCell({ borders, width:{size:9360,type:WidthType.DXA}, shading:{fill:C.navy,type:ShadingType.CLEAR}, margins:{top:160,bottom:160,left:240,right:240}, children:[new Paragraph({children:[new TextRun({text:'TIER 3 — DATA LAYER',font:'Arial',size:20,bold:true,color:C.gold,characterSpacing:100})],alignment:AlignmentType.CENTER,spacing:{before:0,after:60}}), new Paragraph({children:[new TextRun({text:'PostgreSQL 16 + pgvector Extension + Redis Job Queue',font:'Arial',size:22,bold:true,color:C.white})],alignment:AlignmentType.CENTER,spacing:{before:0,after:0}})] })] }),
           new TableRow({ children: [new TableCell({ borders, width:{size:9360,type:WidthType.DXA}, shading:{fill:C.light,type:ShadingType.CLEAR}, margins:{top:100,bottom:100,left:240,right:240}, children:[
@@ -699,7 +699,7 @@ function makeChapter4() {
             new Paragraph({children:[new TextRun({text:'analytics_aggregates table  ·  Pre-computed user metrics for dashboard performance',font:'Arial',size:19,color:C.nearBlack})],spacing:{before:20,after:20}}),
             new Paragraph({children:[new TextRun({text:'Redis  ·  Background job queue for notification scheduling and async processing',font:'Arial',size:19,color:C.nearBlack})],spacing:{before:20,after:20}}),
             new Paragraph({children:[new TextRun({text:'Managed cloud PostgreSQL  ·  Production deployment with TLS 1.3 encryption',font:'Arial',size:19,color:C.nearBlack})],spacing:{before:20,after:20}}),
-          ]} })] }),
+          ]} )] }),
         ]
       }),
       captionPara('Figure 4.2 — Three-tier client-server architecture with full technology detail per layer'),
@@ -1160,6 +1160,6 @@ const doc = new Document({
 });
 
 Packer.toBuffer(doc).then(buffer => {
-  fs.writeFileSync('/home/claude/LifeOS_Book_Synopsis.docx', buffer);
+  fs.writeFileSync('LifeOS_Book_Synopsis.docx', buffer);
   console.log('Document written successfully.');
 }).catch(err => console.error('Error:', err));
