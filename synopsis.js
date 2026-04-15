@@ -192,83 +192,132 @@ function makeCoverSection() {
       }
     },
     children: [
-      // Top bar
-      new Table({
-        width: { size: 10080, type: WidthType.DXA },
-        columnWidths: [10080],
-        rows: [new TableRow({ children: [
-          new TableCell({
-            borders: noBorders,
-            shading: { fill: C.navy, type: ShadingType.CLEAR },
-            margins: { top: 200, bottom: 200, left: 400, right: 400 },
-            children: [
-              new Paragraph({
-                children: [new TextRun({ text: 'BCA FINAL SEMESTER PROJECT  ·  PATNA UNIVERSITY  ·  PROJECT SYNOPSIS', font: 'Arial', size: 18, color: C.white, characterSpacing: 120 })],
-                alignment: AlignmentType.CENTER,
-                spacing: { before: 0, after: 0 },
-              })
-            ],
-          })
-        ]})]
-      }),
-      spacer(400),
+      spacer(140),
       new Paragraph({
-        children: [new TextRun({ text: 'LifeOS', font: 'Arial', size: 120, bold: true, color: C.navy })],
+        children: [new TextRun({ text: 'PATNA UNIVERSITY', font: 'Arial', size: 44, bold: true, color: C.accent })],
         alignment: AlignmentType.CENTER,
-        spacing: { before: 0, after: 0 },
+        spacing: { before: 0, after: 20 },
       }),
       new Paragraph({
-        children: [new TextRun({ text: 'Smart Life Decision Operating System', font: 'Arial', size: 36, bold: true, color: C.accent, characterSpacing: 60 })],
+        children: [new TextRun({ text: 'Department of Computer Applications', font: 'Arial', size: 24, bold: false, color: C.nearBlack })],
         alignment: AlignmentType.CENTER,
-        spacing: { before: 80, after: 120 },
+        spacing: { before: 0, after: 8 },
       }),
       new Paragraph({
-        border: { bottom: { style: BorderStyle.SINGLE, size: 8, color: C.gold } },
+        children: [new TextRun({ text: 'Bachelor of Computer Applications (BCA)  —  Semester V', font: 'Arial', size: 22, color: C.nearBlack })],
+        alignment: AlignmentType.CENTER,
+        spacing: { before: 0, after: 40 },
+      }),
+      new Paragraph({
+        border: { bottom: { style: BorderStyle.SINGLE, size: 8, color: C.accent } },
         children: [new TextRun('')],
         spacing: { before: 0, after: 0 },
       }),
-      spacer(80),
+      spacer(40),
       new Paragraph({
-        children: [new TextRun({ text: 'An AI-Powered Mobile Platform for Structured Decision Management,\nOutcome Tracking, and Behavioral Analytics', font: 'Arial', size: 24, italics: true, color: C.gray })],
-        alignment: AlignmentType.CENTER,
-        spacing: { before: 80, after: 360 },
-      }),
-      spacer(200),
-      // Student Info Table
-      new Table({
-        width: { size: 7200, type: WidthType.DXA },
-        columnWidths: [2880, 4320],
-        rows: [
-          ['Student Name',        'Badal Kumar'],
-          ['Roll Number',         '10'],
-          ['Registration Number', '202324200016'],
-          ['College Name',        'Patna College, Patna'],
-          ['Session',             '2023 – 2026'],
-          ['Project Guide',       '___________________________'],
-          ['Designation',         '___________________________'],
-        ].map(([label, val], i) => new TableRow({ children: [
-          new TableCell({
-            borders,
-            width: { size: 2880, type: WidthType.DXA },
-            shading: { fill: i % 2 === 0 ? C.light : C.white, type: ShadingType.CLEAR },
-            margins: { top: 120, bottom: 120, left: 200, right: 200 },
-            children: [new Paragraph({ children: [new TextRun({ text: label, font: 'Arial', size: 21, bold: true, color: C.navy })], spacing: { before: 0, after: 0 } })],
-          }),
-          new TableCell({
-            borders,
-            width: { size: 4320, type: WidthType.DXA },
-            shading: { fill: i % 2 === 0 ? C.light : C.white, type: ShadingType.CLEAR },
-            margins: { top: 120, bottom: 120, left: 200, right: 200 },
-            children: [new Paragraph({ children: [new TextRun({ text: val, font: 'Arial', size: 21, color: C.nearBlack })], spacing: { before: 0, after: 0 } })],
-          }),
-        ]})),
-      }),
-      spacer(600),
-      new Paragraph({
-        children: [new TextRun({ text: 'Academic Year 2023 – 2026', font: 'Arial', size: 20, color: C.gray, italics: true })],
+        children: [new TextRun({ text: 'PROJECT SYNOPSIS', font: 'Arial', size: 50, bold: true, color: C.gold })],
         alignment: AlignmentType.CENTER,
         spacing: { before: 0, after: 0 },
       }),
+      spacer(12),
+      new Paragraph({
+        border: { bottom: { style: BorderStyle.SINGLE, size: 8, color: C.accent } },
+        children: [new TextRun('')],
+        spacing: { before: 0, after: 0 },
+      }),
+      spacer(100),
+      new Table({
+        width: { size: 9360, type: WidthType.DXA },
+        columnWidths: [9360],
+        rows: [new TableRow({ children: [new TableCell({
+          borders: {
+            top: { style: BorderStyle.SINGLE, size: 12, color: C.accent },
+            bottom: { style: BorderStyle.SINGLE, size: 12, color: C.accent },
+            left: { style: BorderStyle.SINGLE, size: 12, color: C.accent },
+            right: { style: BorderStyle.SINGLE, size: 12, color: C.accent },
+          },
+          margins: { top: 220, bottom: 220, left: 220, right: 220 },
+          children: [
+            new Paragraph({
+              children: [new TextRun({ text: 'Bihar Sahayata', font: 'Arial', size: 40, bold: true, color: C.accent })],
+              alignment: AlignmentType.CENTER,
+              spacing: { before: 0, after: 24 },
+            }),
+            new Paragraph({
+              children: [new TextRun({ text: 'A Disaster Relief & Emergency Coordination Platform', font: 'Arial', size: 28, bold: true, color: C.navy })],
+              alignment: AlignmentType.CENTER,
+              spacing: { before: 0, after: 18 },
+            }),
+            new Paragraph({
+              children: [new TextRun({ text: 'Real-time volunteer coordination, emergency SOS, and relief fund management for Bihar', font: 'Arial', size: 20, color: C.gray })],
+              alignment: AlignmentType.CENTER,
+              spacing: { before: 0, after: 0 },
+            }),
+          ],
+        })]})]
+      }),
+      spacer(120),
+      new Table({
+        width: { size: 9360, type: WidthType.DXA },
+        columnWidths: [3120, 6240],
+        rows: [
+          ['Student Names', 'Shubham Kumar Mishra & Atul Sharma'],
+          ['Roll Numbers', '23 (Shubham Kumar Mishra)\n10 (Atul Sharma)'],
+          ['Course', 'BCA — Semester V'],
+          ['Batch / Session', '2023 - 2026'],
+          ['Project Guide', '___________________________'],
+          ['Designation', '___________________________'],
+          ['College Name', '___________________________'],
+        ].map(([label, value], i) => new TableRow({ children: [
+          new TableCell({
+            borders,
+            width: { size: 3120, type: WidthType.DXA },
+            shading: { fill: i % 2 === 0 ? C.light : C.white, type: ShadingType.CLEAR },
+            margins: { top: 120, bottom: 120, left: 240, right: 240 },
+            children: [new Paragraph({
+              children: [new TextRun({ text: label + ' :', font: 'Arial', size: 22, bold: true, color: C.navy })],
+              spacing: { before: 0, after: 0 },
+            })],
+          }),
+          new TableCell({
+            borders,
+            width: { size: 6240, type: WidthType.DXA },
+            shading: { fill: i % 2 === 0 ? C.light : C.white, type: ShadingType.CLEAR },
+            margins: { top: 120, bottom: 120, left: 240, right: 240 },
+            children: [new Paragraph({
+              children: [new TextRun({ text: value, font: 'Arial', size: 22, color: C.nearBlack })],
+              spacing: { before: 0, after: 0 },
+            })],
+          }),
+        ]})),
+      }),
+      spacer(140),
+      new Table({
+        width: { size: 9360, type: WidthType.DXA },
+        columnWidths: [3120, 3120, 3120],
+        rows: [
+          new TableRow({ children: [
+            new TableCell({
+              borders: noBorders,
+              children: [new Paragraph({ children: [new TextRun({ text: 'Student Signature', font: 'Arial', size: 20, bold: true, color: C.navy })], alignment: AlignmentType.CENTER, spacing: { before: 0, after: 40 } })],
+            }),
+            new TableCell({
+              borders: noBorders,
+              children: [new Paragraph({ children: [new TextRun({ text: 'Guide Signature', font: 'Arial', size: 20, bold: true, color: C.navy })], alignment: AlignmentType.CENTER, spacing: { before: 0, after: 40 } })],
+            }),
+            new TableCell({
+              borders: noBorders,
+              children: [new Paragraph({ children: [new TextRun({ text: 'HOD Signature', font: 'Arial', size: 20, bold: true, color: C.navy })], alignment: AlignmentType.CENTER, spacing: { before: 0, after: 40 } })],
+            }),
+          ]}),
+          new TableRow({ children: [
+            tableCell('___________________________', 3120, false, false, true),
+            tableCell('___________________________', 3120, false, false, true),
+            tableCell('___________________________', 3120, false, false, true),
+          ]}),
+        ],
+      }),
+      spacer(100),
     ]
   };
 }
@@ -1160,6 +1209,6 @@ const doc = new Document({
 });
 
 Packer.toBuffer(doc).then(buffer => {
-  fs.writeFileSync('LifeOS_Book_Synopsis.docx', buffer);
+  fs.writeFileSync('LifeOS_Book_Synopsis_UPDATED.docx', buffer);
   console.log('Document written successfully.');
 }).catch(err => console.error('Error:', err));
