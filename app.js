@@ -99,6 +99,26 @@ let debounce = (fn, delay)=>{
    }
 }
 
+let debounce = (fn, delay)=>{
+  let timer;
+
+  return function(...args){
+     clearTimeout(timer)
+     timer = setTimeout(()=>{
+        fn(...args)
+     }, delay)
+  }
+}
+
+
+function search(query){
+    console.log(query)
+}
+
+let fn = debounce(search, 1000)
+fn("seach")
+
+
 let fn = debounce(search,1000)
 function search(query) {
     console.log(`i am seaching`, query);
@@ -119,7 +139,20 @@ let throttle =(fn,limit) =>{
     }
 }
 
+//throttle
 
+let throttle = (fn, limit)=>{
+    let lastCall = 0;
+
+    return function(...args){
+        let now = Date.now();
+        if(now - lastCall >= delay){
+            lastCall = now;
+            fn(...args)
+        }
+    }
+
+}
 
 
 function massage(msg){

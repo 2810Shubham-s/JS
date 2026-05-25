@@ -1,0 +1,849 @@
+
+    
+                                                                       
+5010150711203048003746500 PATNA UNIVERSITY
+Department of Computer Applications
+Bachelor of Computer Applications (BCA) — Semester V
+
+PROJECT SYNOPSIS
+
+Bihar Sahayata
+A Disaster Relief & Emergency Coordination Platform
+Real-time Volunteer Coordination · Emergency SOS · Relief Fund Management
+
+Student Names
+:
+Shubham Kumar Mishra             &             Atul Sharma
+Roll Numbers
+:
+23   (Shubham Kumar Mishra)      |    10    (Atul Sharma)
+Registration Numbers
+:     
+ 202324200065 (Shubham Kumar Mishra) | 202324200020 (Atul Sharma)
+Programme
+:
+Bachelor of Computer Applications — Semester V
+College Name
+:
+Patna College
+Session
+:       
+2023-2026
+Project Guide
+:
+Designation
+:
+
+Student Signature
+
+Guide Signature
+
+HOD Signature
+
+Academic Session: 2025 – 2026
+
+DECLARATION OF ORIGINALITY
+
+We, Shubham Kumar Mishra (Roll No. 23) and Atul Sharma (Roll No. 10), students of Bachelor of Computer Applications (BCA), Semester V, Batch 2023–2026, Patna University, do hereby solemnly declare that the project entitled:
+
+"Bihar Sahayata: A Disaster Relief & Emergency Coordination Platform"
+
+submitted in partial fulfilment of the requirements for the degree of Bachelor of Computer Applications, is our original work carried out under the guidance and supervision of our project guide.
+
+We further declare that:
+
+This work has not been submitted previously, in whole or in part, to any university or institution for any degree, diploma, or other qualification.
+All sources of information and assistance have been duly acknowledged in the References section.
+The work presented herein does not violate any existing intellectual property rights of any third party and is in full compliance with the norms prescribed by Patna University.
+Any ideas or quotations borrowed from published or unpublished sources have been reported by citing the sources as mentioned in the standard bibliographic manner.
+
+Shubham Kumar Mishra
+Roll No. 23 | BCA Sem. V
+
+Signature
+Atul Sharma
+Roll No. 10 | BCA Sem. V
+
+Signature
+
+Project Guide
+Name & Designation: _________________
+
+Signature & Date
+Head of Department
+Department of Computer Applications
+
+Signature & Seal
+
+ABSTRACT
+
+Bihar, one of the most flood-prone states in India, experiences widespread devastation annually due to the overflowing of rivers Ganga, Kosi, Gandak, and Bagmati. According to the National Disaster Management Authority (NDMA), approximately 73% of Bihar's total geographical area falls within flood-risk zones, displacing millions of citizens each monsoon season and placing enormous strain on emergency response systems.
+
+Despite the existence of a large volunteer base and numerous active NGOs, emergency coordination in Bihar remains fragmented, reactive, and largely paper-based. The absence of a unified digital platform results in delayed response times, duplication of relief efforts, lack of transparency in fund utilisation, and inadequate volunteer management.
+
+This synopsis presents Bihar Sahayata, a full-stack, mobile-first Disaster Relief and Emergency Coordination Platform purpose-built for the state of Bihar. The platform bridges the critical operational gap between distress-stricken citizens, field-deployed volunteers, and disaster management authorities through a suite of tightly integrated digital tools.
+
+The system architecture encompasses a production-grade Node.js REST API (50 endpoints) secured by role-based access control, a serverless PostgreSQL database (19 tables), and a cross-platform React Native mobile application serving three distinct user roles: Citizens, Volunteers, and Administrators. Core functionalities include GPS-based SOS panic alerts using the Haversine geolocation algorithm, structured issue reporting and lifecycle tracking, volunteer verification and team management, official disaster declaration workflows, and transparent crowdfunding campaign management.
+
+The platform is engineered to operate reliably on low-bandwidth mobile connections — a critical requirement for disaster-affected zones — and is deployed via Docker containerisation on Fly.io cloud infrastructure. Bihar Sahayata represents a complete, end-to-end demonstration of modern full-stack development principles, encompassing database design, API security, geospatial computation, cloud deployment, and human-centred mobile interface design within the academic framework of the BCA curriculum at Patna University.
+
+Keywords: Disaster Relief · Emergency Coordination · React Native · Node.js · Geolocation · Haversine Formula · PostgreSQL · Role-Based Access Control · Volunteer Management · Bihar · Crowdfunding · REST API
+
+TABLE OF CONTENTS
+
+	TOC \h \o "1-3" \t "Heading 1,1,Heading 2,2,Heading 3,3"Introduction	 PAGEREF _Toc227090874 \h 5
+	1.1            The Disaster Landscape of Bihar	 PAGEREF _Toc227090875 \h 5
+	1.2            The Coordination Gap	 PAGEREF _Toc227090876 \h 5
+	1.3            Bihar Sahayata — The Platform	 PAGEREF _Toc227090877 \h 5
+	1.4            Academic and Social Significance	 PAGEREF _Toc227090878 \h 6
+	1.5            Document Organisation	 PAGEREF _Toc227090879 \h 6
+	Objectives	 PAGEREF _Toc227090880 \h 8
+	2.1            Primary Objectives	 PAGEREF _Toc227090881 \h 8
+	2.2            Secondary Objectives	 PAGEREF _Toc227090882 \h 9
+	Scope	 PAGEREF _Toc227090883 \h 10
+	3.1            In-Scope Deliverables	 PAGEREF _Toc227090884 \h 10
+	3.2            Out-of-Scope Items and Future Roadmap	 PAGEREF _Toc227090885 \h 10
+	Methodology	 PAGEREF _Toc227090886 \h 12
+	4.1            Agile Development Methodology	 PAGEREF _Toc227090887 \h 12
+	4.2            Issue Resolution State Machine	 PAGEREF _Toc227090888 \h 12
+	4.3            Haversine Geolocation Algorithm	 PAGEREF _Toc227090889 \h 13
+	System Architecture	 PAGEREF _Toc227090890 \h 14
+	5.1            High-Level Architecture	 PAGEREF _Toc227090891 \h 14
+	5.2            Database Schema Overview	 PAGEREF _Toc227090892 \h 15
+	Tools and Technologies	 PAGEREF _Toc227090893 \h 16
+	6.1            Backend Technology Stack	 PAGEREF _Toc227090894 \h 16
+	6.2            Mobile and Frontend Technologies	 PAGEREF _Toc227090895 \h 17
+	6.3            Development and DevOps Tools	 PAGEREF _Toc227090896 \h 17
+	System Requirements	 PAGEREF _Toc227090897 \h 18
+	7.1            Hardware Requirements	 PAGEREF _Toc227090898 \h 18
+	7.2            Software Requirements	 PAGEREF _Toc227090899 \h 18
+	7.3            API Endpoints Summary	 PAGEREF _Toc227090900 \h 19
+	Expected Outcomes	 PAGEREF _Toc227090901 \h 20
+	8.1            Technical Deliverables	 PAGEREF _Toc227090902 \h 20
+	8.2            Social and Operational Impact	 PAGEREF _Toc227090903 \h 20
+	Project Timeline	 PAGEREF _Toc227090904 \h 22
+	9.1            Development Phases and Milestones	 PAGEREF _Toc227090905 \h 22
+	9.2            Phase Deliverables Summary	 PAGEREF _Toc227090906 \h 23
+	References	 PAGEREF _Toc227090907 \h 24
+	10.1            Government and Institutional Sources	 PAGEREF _Toc227090908 \h 24
+	10.2            Technical Documentation	 PAGEREF _Toc227090909 \h 24
+                                                                                                                                                                        
+
+CHAPTER 1
+
+Introduction
+Context, Background, and Motivation
+
+Introduction
+
+1.1  The Disaster Landscape of Bihar
+
+Bihar occupies a geographically vulnerable position in the eastern Indo-Gangetic plain, drained by some of India's most volatile river systems. The rivers Ganga, Kosi — often called the 'River of Sorrow' — Gandak, and Bagmati routinely breach their banks during the monsoon season, inundating vast swathes of agricultural and residential land. The Kosi river alone has shifted its course by more than 100 kilometres over the past two centuries, making it one of the most unpredictable rivers on the subcontinent.
+According to the National Disaster Management Authority (NDMA), approximately 73 per cent of Bihar's total geographical area is classified as flood-prone, affecting nearly 76 of its 101 sub-divisions. In the 2019 floods alone, more than 8.1 million people were displaced across 13 districts, and the economic losses were estimated at over ₹1,200 crore. These numbers underscore not merely a climatic challenge, but a systemic governance and coordination crisis.
+
+1.2  The Coordination Gap
+
+Despite the well-established nature of Bihar's flood crisis, emergency response continues to be hampered by a fundamental coordination deficit. Volunteer groups, NGOs, government relief agencies, and affected citizens operate in silos, with information flowing through informal telephone chains, social media posts, and physical notice boards. The absence of a unified, real-time communication infrastructure means that:
+Citizens in distress are unable to reach verified help quickly.
+Volunteers often respond to the same incident while other affected areas remain unaddressed.
+Relief funds reach intended beneficiaries only after significant delays and with limited transparency.
+Authorities lack a consolidated operational picture of active incidents across districts.
+This fragmentation is not a problem of intent or resources — it is a problem of missing digital infrastructure.
+
+1.3  Bihar Sahayata — The Platform
+
+Bihar Sahayata is conceived as a unified, mobile-first digital platform that directly addresses the coordination gap described above. The name — translating to 'Bihar Help' or 'Bihar Assistance' — reflects the platform's core mission: to be a dependable, always-available bridge between those who need help and those who can provide it.
+The platform provides three distinct, role-differentiated interfaces that work in concert across a single unified backend:
+
+Role
+Primary Users
+Core Capabilities
+Citizen
+Flood-affected residents, public
+SOS Panic Alert, Issue Reporting, Campaign Donation, Status Tracking
+Volunteer
+Verified field responders, NGO workers
+Accept Issues, Team Management, Qualification Tracking, Resolution Workflow
+Administrator
+SDMA officials, District authorities
+Disaster Declaration, Team Activation, Campaign Approval, Analytics Dashboard
+■            Table 1.1 — Role Matrix: User types and their primary capabilities within Bihar Sahayata
+
+The system is engineered to function on low-bandwidth mobile connections — a non-negotiable requirement given that disaster-affected areas frequently experience degraded network infrastructure. This constraint drives architectural decisions throughout the platform, from the choice of React Native for mobile development to the stateless, cacheable design of the REST API.
+
+1.4  Academic and Social Significance
+
+From an academic perspective, Bihar Sahayata represents a comprehensive synthesis of the core competencies developed across the BCA programme at Patna University. The project integrates relational database design, server-side application programming, RESTful API architecture, mobile application development, cloud infrastructure management, and algorithmic geospatial computation into a single coherent product.
+From a social perspective, the platform addresses a genuine, well-documented public need. Every component — from the SOS panic alert to the volunteer qualification tracker to the transparent campaign portal — maps directly to a real operational gap identified in Bihar's disaster management landscape.
+
+1.5  Document Organisation
+
+This synopsis is organised as a scholarly reference document to guide the development, evaluation, and eventual deployment of the Bihar Sahayata platform. The chapters are structured as follows:
+
+Chapter 1 — Introduction: Context, motivation, and high-level platform overview.
+Chapter 2 — Objectives: Detailed enumeration of measurable project goals.
+Chapter 3 — Scope: Precise definition of in-scope deliverables and future enhancements.
+Chapter 4 — Methodology: Development approach, workflow models, and algorithms.
+Chapter 5 — System Architecture: Technical architecture, database design, and authentication.
+Chapter 6 — Tools and Technologies: Complete technology stack with justifications.
+Chapter 7 — System Requirements: Hardware, software, and API endpoint specifications.
+Chapter 8 — Expected Outcomes: Projected deliverables and success metrics.
+Chapter 9 — Project Timeline: Phased Gantt schedule with milestones.
+Chapter 10 — References: Full academic and technical bibliography.
+
+CHAPTER 2
+
+Objectives of the Project
+Measurable Goals and Success Criteria
+
+Objectives
+
+2.1  Primary Objectives
+
+The following objectives define the measurable targets that Bihar Sahayata must achieve to be considered a successful and complete implementation. Each objective is mapped to a specific technical component and user story, ensuring traceability from requirement to implementation.
+
+ID
+Objective
+Success Criterion
+O-01
+Emergency SOS System
+Implement a one-tap panic alert mechanism that captures the citizen's GPS coordinates and identifies all verified volunteers within a 20 km radius, notifying them within 10 seconds of alert submission.
+O-02
+Issue Reporting & Tracking
+Enable structured reporting of emergency incidents (flood, medical, rescue, infrastructure) with severity classification, victim count, GPS coordinates, and full lifecycle tracking from Pending through to Resolved.
+O-03
+Volunteer Coordination Workflow
+Build a complete volunteer management system enabling acceptance, en-route confirmation, on-site check-in, and issue resolution with a defined four-stage state machine.
+O-04
+Team Management
+Allow volunteers to create and manage rescue, medical, relief, and general teams with membership controls, role assignments, and administrator activation capability during declared disasters.
+O-05
+Disaster Management Dashboard
+Provide administrators with tools to declare official disasters, assign severity levels, monitor all active incidents by district, activate volunteer teams, and manage disaster status in real time.
+O-06
+Transparent Crowdfunding
+Enable creation and approval of verified relief campaigns with defined goals, real-time donation tracking, progress percentages, and donor transparency to build public confidence.
+O-07
+Role-Based Access Control
+Enforce strict, non-bypassable permission separation between Citizens, Volunteers, and Administrators at the API middleware layer, ensuring data integrity and system security.
+O-08
+Cross-Platform Mobile Application
+Deliver a React Native mobile application covering 20 screens across all user roles, accessible on both Android (10+) and iOS (14+), with an offline-resilient architecture.
+■            Table 2.1 — Objective traceability matrix with measurable success criteria
+
+2.2  Secondary Objectives
+
+In addition to the primary functional objectives, the project pursues the following secondary objectives which enhance the platform's long-term viability, security posture, and academic value:
+API Documentation: Produce a complete OpenAPI (Swagger) specification for all 50 endpoints, accessible via an interactive browser interface at /api/docs.
+Security Hardening: Implement HTTP security headers via Helmet, configurable rate limiting to prevent denial-of-service attacks, and comprehensive input validation using Zod schema validators.
+Cloud Readiness: Achieve production deployment on Fly.io with Docker containerisation, demonstrating the full DevOps lifecycle from local development to cloud-hosted service.
+Code Quality: Maintain strict TypeScript typing throughout the backend codebase, enforcing compile-time correctness and reducing runtime error probability.
+Database Efficiency: Implement Haversine-based geospatial queries at the database level to minimise data transfer and maximise query performance during high-load disaster events.
+
+CHAPTER 3
+
+Scope of the Project
+Deliverables, Boundaries, and Future Roadmap
+
+Scope
+
+3.1  In-Scope Deliverables
+
+The following components and features constitute the confirmed, in-scope deliverables of the Bihar Sahayata project:
+Component
+Description
+Emergency SOS Module
+GPS-triggered panic alert with countdown timer, volunteer radius search, and alert status tracking.
+Issue Reporting System
+Multi-field incident forms with type classification, severity levels, victim details, and GPS attachment.
+Volunteer Lifecycle
+Full onboarding, verification, qualification logging, team membership, and issue resolution tracking.
+Disaster Management
+Official disaster declaration, severity updates, district monitoring, and team activation by administrators.
+Campaign & Donations
+Campaign creation, admin approval, donation processing (demo Razorpay-ready), real-time progress.
+Role-Based Dashboards
+Distinct, permission-controlled dashboards for all three user roles.
+District Data
+All 38 Bihar districts seeded into the database with searchable metadata.
+Cloud Deployment
+Docker-containerised REST API deployed on Fly.io with environment secrets management.
+Authentication
+Email/password with verification via Resend, Google OAuth social login, and bearer/cookie sessions.
+API Documentation
+OpenAPI interactive documentation for all 50 endpoints.
+■            Table 3.1 — Confirmed in-scope deliverables for the current development phase
+
+3.2  Out-of-Scope Items and Future Roadmap
+
+The following features have been consciously deferred to future development phases. This is not an indication of their unimportance — rather, it reflects a disciplined scope management approach that prioritises a complete, working core over an incomplete, bloated prototype.
+Feature
+Target Phase
+Description
+FCM Push Notifications
+Q1 2026
+Firebase Cloud Messaging integration for real-time volunteer alerts without polling.
+WebSocket Real-time Updates
+Q1 2026
+Live status updates for active issues without page refresh, using Socket.io.
+SMS Alerts (MSG91/Twilio)
+Q2 2026
+Reach non-smartphone users in disaster zones via SMS-based emergency alerts.
+Live Map Tracking
+Q2 2026
+Real-time GPS tracking of volunteer positions during active rescue operations.
+AI Severity Prediction
+Q3 2026
+ML model to auto-classify issue severity and suggest optimal volunteer dispatch.
+SDMA API Integration
+Q3 2026
+Two-way data exchange with the State Disaster Management Authority's official systems.
+Offline Sync Engine
+Q4 2026
+Full offline data capture with automatic sync when connectivity is restored.
+■            Table 3.2 — Future development roadmap with planned implementation phases
+
+CHAPTER 4
+
+Methodology
+Development Approach, Algorithms, and Workflow Models
+
+Methodology
+
+4.1  Agile Development Methodology
+
+Bihar Sahayata adopts the Agile Software Development methodology, specifically a lightweight Sprint-based workflow, as its guiding development philosophy. Agile is selected in preference to traditional Waterfall models because of the inherent uncertainty in disaster-response software requirements: real-world operational needs often surface only after initial prototypes are evaluated against realistic scenarios.
+The development is structured into ten discrete phases, each producing a tested, functional increment. This phased approach allows early identification of integration issues, performance bottlenecks, and usability concerns — all of which are significantly more expensive to address in later stages.
+
+Phase 1
+Phase 2
+Phase 3
+Phase 4
+Phase 5
+Planning & Schema Design
+Auth System
+Middleware Layer
+Core API Routes
+Campaigns
+▶
+▶
+▶
+▶
+✔
+
+Phase 6
+Phase 7
+Phase 8
+Phase 9
+Phase 10
+Admin & Seeding
+Security Hardening
+Cloud Deploy
+Mobile App
+Testing & Docs
+▶
+▶
+▶
+▶
+✔
+■            Figure 4.1 — Ten-phase Agile development pipeline for Bihar Sahayata
+
+4.2  Issue Resolution State Machine
+
+The lifecycle of every reported incident in Bihar Sahayata follows a formally defined state machine. This ensures that issues cannot skip states arbitrarily, that responsibility is always assigned, and that audit trails are maintained for accountability. The state machine is enforced at the API middleware layer, not merely in the front-end application.
+ The system enforces strict role-based access control to ensure that only authorized entities can initiate or approve specific state transitions. It maintains a single source of truth for each incident, preventing duplicate or conflicting actions across different actors. All state changes are recorded in real time, enabling detailed post-incident analysis and evaluation of response efficiency. This structured approach enhances consistency, reliability, and operational discipline, especially during high-pressure disaster scenarios.
+
+Pending
+Assigned
+En Route
+On Site
+Resolved
+Escalated
+Initial state on report submission
+Volunteer accepts the issue
+Volunteer confirms departure
+Volunteer marks arrival
+Issue fully resolved
+Admin escalation path
+→ Volunteer Accepts
+→ Departs
+→ Arrives
+→ Completes
+[Terminal]
+← Re-assigns to Volunteer
+■            Figure 4.2 — Issue resolution state machine with transition triggers
+
+4. Haversine Geolocation Algorithm
+
+The selection of nearby volunteers for SOS alerts is the most algorithmically critical operation in the Bihar Sahayata platform. The system uses the Haversine Formula — a standard in spherical trigonometry — to compute great-circle distances between the incident's GPS coordinates and each registered volunteer's location stored in the database.
+The Haversine Formula is chosen over Euclidean distance calculation for the following technical reasons:
+Accuracy: Euclidean distance assumes a flat plane, which introduces significant error over distances greater than a few kilometres on the Earth's curved surface.
+Numerical Stability: The Haversine formulation remains numerically stable for both very small distances (adjacent streets) and large distances (cross-district searches).
+Database Integration: The computation can be performed directly within PostgreSQL SQL queries, eliminating the need to transfer large result sets to the application layer for filtering.
+
+The formula, as applied within the platform's SQL queries, is expressed as follows:
+
+d = 2r · arcsin( √[ sin²((φ₂−φ₁)/2) + cosφ₁ · cosφ₂ · sin²((λ₂−λ₁)/2) ] )
+
+where            r = 6,371 km            |            φ = latitude (radians)            |            λ = longitude (radians)
+■            Figure 4.3 — Haversine Formula for great-circle distance computation
+
+Volunteer search radii are calibrated to operational realities: SOS Panic Alerts trigger a 20 km search radius (maximum urgency), while High-Severity Issue Reports trigger a 15 km radius. The formula's parameters are computed within PostgreSQL's native mathematical functions, with latitude and longitude stored as DECIMAL(10, 7) fields to ensure sub-metre precision.
+
+CHAPTER 5
+
+System Architecture
+Technical Design, Database Schema, and Authentication
+
+System Architecture
+
+5.1  High-Level Architecture
+
+Bihar Sahayata follows a three-tier client-server architecture: a client layer (React Native mobile application and web browser), a middleware/API layer (Express.js REST API on Node.js), and a data layer (Neon serverless PostgreSQL). This separation of concerns provides independent scalability, testability, and maintainability of each tier. 
+
+─── CLIENT LAYER ───
+React Native Mobile App
+Expo SDK · Expo Router · NativeWind
+Bearer Token Authentication
+Web Application (Future)
+React / Next.js · Browser
+HTTP Cookie Session
+⬇            HTTPS · REST API            ⬇
+─── API LAYER ───
+Express.js + TypeScript
+50 REST Endpoints
+Better Auth + Zod
+Auth · Validation · RBAC
+Helmet + Rate Limiter
+Security · DDoS Protection
+⬇            Drizzle ORM · SQL Queries            ⬇
+─── DATA LAYER ───
+Neon Serverless PostgreSQL            ·            19 Tables            ·            38 Bihar Districts Seeded            ·            DECIMAL(10,7) GPS Precision
+■            Figure 5.1 — Three-tier system architecture of Bihar Sahayata
+
+2763157100647527590756191252754086222250Client layer sends requests securely to the API layer using HTTPS protocol. API layer validates requests, authenticates users, and processes logic accordingly.Data layer stores records and retrieves information using optimized database queries.Client layer receives responses enabling real time updates and coordinated actions.
+5.2  Database Schema Overview
+
+The database is organised into five functional domains across 19 tables. This domain-driven organisation ensures logical cohesion, minimises cross-domain coupling, and simplifies access pattern analysis for query optimisation.
+
+Domain
+Tables
+Description
+Auth Domain
+user, session, account, verification
+User identity, active sessions, OAuth account links, email verification tokens.
+Volunteer Domain
+volunteer_profile, volunteer_team, team_membership, volunteer_qualification
+Volunteer details, team structures, membership records, and certified skill qualifications.
+Issue Domain
+issue, issue_type, issue_assignment
+Incident reports, classification taxonomy, and volunteer-to-issue assignment records.
+Disaster Domain
+disaster, disaster_team_activation
+Official disaster declarations, severity metadata, and activated team assignments.
+Campaign Domain
+campaign, donation, campaign_update, notification
+Crowdfunding campaigns, individual donations, update posts, and system notifications.
+Location Domain
+district
+All 38 Bihar districts with geospatial metadata for district-level filtering.
+■            Table 5.1 — Database domain organisation: 19 tables across 6 functional domains
+
+CHAPTER 6
+
+Tools and Technologies
+Complete Technology Stack with Technical Justifications
+
+Tools and Technologies
+
+6.1  Backend Technology Stack
+
+The backend stack is assembled for production reliability, developer ergonomics, and type safety. Every technology selection is justified by specific technical requirements of the disaster-response domain.
+
+Technology
+Version
+Role & Justification
+Node.js
+v20 LTS
+JavaScript runtime. LTS version ensures long-term security patches critical for production disaster-response systems.
+Express.js
+v4.19
+HTTP framework providing routing, middleware chaining, and request lifecycle management with minimal overhead.
+TypeScript
+v5.5
+Static type system eliminates an entire class of runtime errors, critical when handling GPS coordinates and user roles.
+Drizzle ORM
+v0.36
+Type-safe SQL query builder that exposes raw SQL performance while maintaining TypeScript schema inference.
+Better Auth
+v1.2
+Unified authentication library supporting email/password, Google OAuth, email verification, and dual session modes.
+Zod
+v4.0
+Runtime schema validation ensuring all API inputs are structurally correct before any database interaction.
+Neon PostgreSQL
+Latest
+Serverless PostgreSQL with HTTP transport, enabling connection pooling and scale-to-zero for cost efficiency.
+Resend
+v3.4
+Transactional email API for verification and password reset, with 99.9% delivery reliability.
+Helmet
+v8.1
+Sets 11 security-related HTTP headers in a single middleware call, protecting against common web vulnerabilities.
+express-rate-limit
+v8.3
+Configurable rate limiting per IP address and route, preventing API abuse during crisis-driven traffic spikes.
+Docker
+Latest
+Container packaging ensuring identical behaviour across development, staging, and production environments.
+Fly.io
+—
+Global edge deployment platform with automatic HTTPS, health checks, and rolling deployments.
+■            Table 6.1 — Backend technology stack with version specifications and technical justifications
+
+6.2  Mobile and Frontend Technologies
+
+Technology
+Purpose and Justification
+React Native + Expo SDK
+Cross-platform mobile development with a single codebase targeting Android 10+ and iOS 14+. Expo's managed workflow eliminates native build complexity.
+Expo Router
+File-based navigation system providing type-safe routing across 20 application screens with deep linking support.
+NativeWind
+Tailwind CSS utility classes for React Native, enabling rapid, consistent styling without separate stylesheet management.
+TanStack Query
+Sophisticated server state management with automatic caching, background refetching, and stale-while-revalidate strategies.
+Axios
+HTTP client with interceptor support for automatic Bearer token injection and global error handling.
+expo-secure-store
+Encrypted device storage for authentication tokens, preventing token theft even if device is compromised.
+expo-location
+Native GPS location access with permission management for SOS alert coordinate capture.
+react-hook-form + Zod
+Performant form management with type-safe validation schemas mirroring the API's backend validation rules.
+■            Table 6.2 — Mobile and frontend technology stack
+
+6.3  Development and DevOps Tools
+
+Tool
+Purpose
+Visual Studio Code
+Primary IDE with ESLint, TypeScript, and Drizzle extensions for code quality enforcement.
+Postman v10+
+API endpoint testing, automated test collections, and OpenAPI documentation export.
+Git + GitHub
+Distributed version control with branch-per-feature workflow and collaborative code review.
+drizzle-kit
+Database schema migration management, generating and applying SQL migrations from TypeScript schema definitions.
+Docker Desktop
+Local container testing to validate deployment parity before pushing to production.
+Neon Dashboard
+Web-based SQL editor and database monitoring for schema inspection and query analysis.
+Fly.io CLI
+Command-line deployment, secret management, log streaming, and instance scaling.
+■            Table 6.3 — Development and DevOps toolchain
+
+CHAPTER 7
+
+System Requirements
+Hardware, Software, and API Endpoint Specifications
+
+System Requirements
+
+7.1  Hardware Requirements
+
+Component
+Development Environment
+Production (Fly.io)
+Processor
+Intel Core i5 (8th Gen+) or AMD Ryzen 5 or better
+Shared CPU (1 vCPU) — auto-scaled by Fly.io
+RAM
+8 GB minimum; 16 GB recommended for emulator + API
+256 MB minimum for API container
+Storage
+20 GB free disk space for dependencies and emulators
+3 GB (Fly.io free tier allocation)
+Network
+Broadband internet (10 Mbps+) for npm/Expo sync
+160 GB outbound transfer per month included
+Mobile Device
+Android 10+ or iOS 14+ for physical device testing
+Not applicable (server-side)
+Display
+Full HD (1920×1080) recommended for IDE + emulator
+Not applicable
+■            Table 7.1 — Hardware requirements for development and production environments
+
+7.2  Software Requirements
+
+Component
+Specification
+Operating System
+Windows 10/11 (64-bit), macOS 12 Monterey+, or Ubuntu 22.04 LTS
+Node.js Runtime
+v20 LTS or higher (v22 also supported); npm v10 or higher
+Docker
+Docker Desktop 4.x (Windows/macOS) or Docker Engine 24+ (Linux)
+Git
+v2.40 or higher for GitHub integration
+PostgreSQL Client
+Any client (Neon operates serverless — no local PostgreSQL installation required)
+IDE
+Visual Studio Code with ESLint, TypeScript, Prettier, and Drizzle extensions
+Browser
+Google Chrome 120+ or Firefox 120+ for API documentation at /api/docs
+Postman
+v10 or higher for API testing and collection management
+Expo CLI
+Latest via npx (no global installation required) for React Native development
+Android Studio
+Flamingo (2022.2.1) or higher for Android emulator; SDK 33+
+■            Table 7.2 — Software requirements and version specifications
+
+7.3 API Endpoints Summary
+
+The Bihar Sahayata backend exposes exactly 50 REST API endpoints across 8 functional resource domains. Each endpoint is secured by appropriate authentication and role-based access middleware, and is fully documented in the OpenAPI specification.
+
+Domain
+Count
+Key Operations
+Authentication
+4
+POST /signup, POST /signin, POST /signout, GET /session
+Volunteer Management
+7
+Create profile, update qualifications, view activation history, manage availability
+Team Management
+7
+Create team, join team, leave team, remove member, list members, activate team
+Panic / SOS Alerts
+2
+POST /panic/alert (send SOS), GET /panic/status (check alert resolution)
+Issue Reporting
+6
+Report issue, list issues, accept issue, update status, resolve, view history
+Disaster Management
+7
+Declare disaster, update severity, list disasters, activate teams, close disaster
+Campaigns & Donations
+5
+Create campaign, approve/reject, donate, post update, view campaign details
+Admin Operations
+12
+User management, volunteer verification, system stats, bulk notifications, audit logs
+Total
+50
+—
+■            Table 7.3 — Complete API endpoint inventory across 8 resource domains
+
+CHAPTER 8
+
+Expected Outcomes
+Deliverables, Impact Projections, and Success Metrics
+
+Expected Outcomes
+
+8.1  Technical Deliverables
+
+#
+Deliverable
+Specification
+1
+Production REST API
+50 endpoints · Node.js/TypeScript · Docker container · Fly.io cloud · OpenAPI docs · Rate limiting · RBAC
+2
+React Native Mobile App
+20 screens · Android 10+ & iOS 14+ · Expo SDK · TanStack Query · expo-secure-store · GPS integration
+3
+PostgreSQL Database
+19 tables · 6 functional domains · Haversine queries · 38 districts seeded · DECIMAL(10,7) coordinates
+4
+Authentication System
+Email/password with verification · Google OAuth · Bearer tokens (mobile) · Cookie sessions (web)
+5
+API Documentation
+Complete OpenAPI specification · Interactive Swagger UI at /api/docs · Postman collection
+6
+Security Implementation
+Helmet headers · Rate limiting · Zod validation · Role-based middleware · HTTPS enforcement
+■            Table 8.1 — Technical deliverables with detailed specifications
+
+8.2  Social and Operational Impact
+
+Beyond the technical artefacts, Bihar Sahayata is projected to deliver measurable social impact if deployed in a real operational context. The following outcomes represent the platform's intended societal contribution:
+Reduced Emergency Response Time: GPS-based volunteer matching is projected to reduce the time between a panic alert submission and volunteer acknowledgement from an estimated 20–40 minutes (current informal process) to under 5 minutes for areas with registered volunteer coverage.
+Transparent Relief Fund Management: Verified campaigns with real-time progress dashboards eliminate the opacity that currently erodes public trust in donation-based relief efforts.
+Volunteer Network Coverage: A structured, district-tagged volunteer database covering all 38 Bihar districts provides authorities with a reliable operational roster that currently does not exist in digital form.
+Scalable Architecture: Neon's serverless PostgreSQL auto-scales reads during disaster-event traffic spikes without manual DBA intervention, ensuring system availability precisely when it is most critical.
+Academic Contribution: A complete, end-to-end BCA project demonstrating full-stack development, geospatial algorithms, API security, and cloud DevOps — representing the full academic scope of the Patna University BCA curriculum. Improved Incident Visibility: Real-time dashboards provide authorities with a unified view of all active incidents, enabling faster decision-making and better resource allocation during emergencies
+Improved Incident Visibility: Real-time dashboards provide authorities with a unified view of all active incidents, enabling faster decision-making and better resource allocation during emergencies.
+Data-Driven Disaster Planning: Historical incident data and response metrics can be analyzed to identify high-risk zones, recurring patterns, and infrastructure gaps, supporting long-term disaster preparedness strategies.
+Last-Mile Connectivity: The platform bridges the communication gap in rural and low-connectivity areas through lightweight architecture and minimal data dependency, ensuring accessibility during critical situations.
+Inter-Agency Coordination: By integrating citizens, volunteers, and government authorities into a single system, the platform reduces fragmentation and enhances coordination between multiple response agencies.
+Accountability and Auditability: Complete audit trails for every incident ensure that actions taken by volunteers and authorities are traceable, reducing negligence and improving administrative accountability.
+Rapid Resource Mobilization: The system enables quicker identification and deployment of nearby resources such as medical aid, transport, and relief materials based on real-time availability.
+Community Empowerment: Citizens are transformed from passive victims into active participants by enabling them to report incidents, assist others, and contribute to disaster response efforts.
+Operational Cost Efficiency: Digitized coordination reduces reliance on manual processes, phone-based communication, and redundant resource deployment, leading to more efficient use of government funds.
+Scalable to National Level: While designed for Bihar, the platform architecture is adaptable to other states, making it a potential model for nationwide disaster management systems.
+
+CHAPTER 9
+
+Project Timeline
+Phased Development Schedule with Milestones
+
+Project Timeline
+
+9.1  Development Phases and Milestones
+
+Phase / Activity
+W1
+W2
+W3
+W4
+W5
+W6
+W7
+W8
+W9
+W10
+1. Project Planning & Research
+■
+
+2. Database Schema & Migrations
+
+■
+
+3. Authentication System
+
+■
+
+4. Middleware & Validation Layer
+
+■
+
+5. Core API Routes (31 endpoints)
+
+■
+■
+
+6. Campaigns & Donation Module
+
+■
+
+7. Admin Routes & District Seeding
+
+■
+
+8. Security Hardening & Deployment
+
+■
+■
+
+9. React Native Mobile Application
+
+■
+■
+■
+■
+10. Testing, QA & Documentation
+
+■
+■
+■            Figure 9.1 — Gantt chart: Ten-phase development timeline over ten weeks
+
+The project follows a structured 10-week development timeline divided into clearly defined phases, starting with planning and database design, followed by authentication and middleware development. Core API functionalities and modules such as campaigns and admin systems are implemented in the mid-phase, ensuring a solid backend foundation. The later stages focus on security hardening, mobile application development, and system deployment. The final phase is dedicated to testing, quality assurance, and documentation, ensuring the platform is stable, secure, and ready for real-world use.
+
+9.2  Phase Deliverables Summary
+
+Ph.
+Activity
+Duration
+Key Deliverable
+1
+Project Planning & Research
+Week 1
+Requirement analysis, schema design blueprints, technology stack finalisation
+2
+Database Schema & Setup
+Week 2
+19-table PostgreSQL schema with full Drizzle ORM migration scripts
+3
+Authentication System
+Week 3
+Better Auth integration, email verification, Google OAuth, session management
+4
+Middleware & Validation
+Week 3
+Role-based access control middleware, Zod validation schemas, error handling
+5
+Core API Routes
+Weeks 4–5
+31 endpoints covering volunteer, issues, teams, panic alerts, and disasters
+6
+Campaigns & Donations
+Week 6
+Campaign creation workflow, admin approval, donation processing module
+7
+Admin Routes & Seeding
+Week 6
+12 admin endpoints, all 38 Bihar districts seeded, notification system
+8
+Hardening & Deployment
+Weeks 7–8
+Helmet security, rate limiting, Docker image, Fly.io production deployment
+9
+Mobile App Development
+Weeks 7–10
+20-screen React Native application across all user roles
+10
+Testing & Documentation
+Weeks 9–10
+Postman test collection, OpenAPI docs, final synopsis, user manual
+■            Table 9.1 — Phase-wise deliverables and duration mapping
+The phase deliverables summary provides a detailed breakdown of the outputs achieved at each stage of the project, aligning specific activities with defined timelines and measurable results. Each phase contributes a critical component to the overall system, beginning with requirement analysis and database schema design, followed by authentication mechanisms, middleware validation, and core API development. Mid-phase deliverables include campaign management systems and administrative modules, ensuring operational control and data organization. The later stages focus on security hardening, deployment setup, and mobile application development, extending the platform across multiple user interfaces. The final phase emphasizes testing, API documentation, and user manuals, ensuring the system is reliable, well-documented, and ready for real-world deployment.
+
+CHAPTER 10
+
+References
+Academic and Technical Bibliography
+
+References
+
+10.1  Government and Institutional Sources
+
+[1]     National Disaster Management Authority (NDMA), Government of India. Bihar Flood Management Report. Available at: https://ndma.gov.in
+[2]    Bihar State Disaster Management Authority (BSDMA). Annual Flood Report 2023. Available at: https://bsdma.bih.nic.in
+[3]    Ministry of Home Affairs, Government of India. National Policy on Disaster Management 2009. Available at: https://ndma.gov.in/sites/default/files/PDF/national-policy.pdf
+
+10.2   Technical Documentation
+
+[4]    Better Auth. Authentication for modern web applications. Version 1.2. Available at: https://better-auth.com/docs
+[5]   Drizzle ORM. TypeScript ORM for SQL databases. Available at: https://orm.drizzle.team
+[6]   Neon, Inc. Serverless PostgreSQL Documentation. Available at: https://neon.tech/docs
+[7]    Express.js Foundation. Express.js API Reference v4.x. Available at: https://expressjs.com/en/4x/api.html
+[8]    React Native Community. React Native Official Documentation. Available at: https://reactnative.dev/docs/getting-started
+[9]   Expo. An open-source platform for making universal native apps. Available at: https://docs.expo.dev
+[10]  Fly.io. Deploy app servers close to your users. Available at: https://fly.io/docs
+[11]   Resend. Email API for developers. Available at: https://resend.com/docs
+[12]  OWASP Foundation. OWASP Top Ten Security Risks — 2021 Edition. Available at: https://owasp.org/www-project-top-ten
+[13]  Colby, D. (2012). Zod: TypeScript-first schema validation. Available at: https://zod.dev
+
+CERTIFICATION
+
+This is to certify that the project entitled Bihar Sahayata: A Disaster Relief & Emergency Coordination Platform, submitted by Shubham Kumar Mishra (Roll No. 23) and Atul Sharma (Roll No. 10) of BCA Semester V, Batch 2023–2026, is a bonafide piece of work carried out under my supervision. This synopsis has been prepared in accordance with the guidelines prescribed by the Department of Computer Applications, Patna University.
+
+Project Guide
+Name: _______________________________
+Designation: _________________________
+
+Signature & Date
+Head of Department
+Department of Computer Applications
+Patna College, Patna University
+
+Signature & Official Seal
+
+— End of Synopsis —
+
+Bihar Sahayata                        Patna University BCA Semester V           Academic Session 2025–2026
